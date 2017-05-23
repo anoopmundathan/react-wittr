@@ -5,7 +5,7 @@ export const Main = () => {
     <main class="main">
       <article class="post">
         <div class="post-content">
-          <img src="/imgs/avatar.jpg" alt="" class="post-avatar" width="40" height="40" />
+          <img src="/imgs/dr-evil.gif" alt="" class="post-avatar" width="40" height="40" />
           <div class="post-text-content">
             <div class="post-title">
               <h1 class="post-heading">Jake Archibald</h1>
@@ -18,9 +18,9 @@ export const Main = () => {
         </div>
       </article>
       <article class="post">
-        <img src="/imgs/wolff.jpg" alt="" class="post-main-img" />
+        <img src="/imgs/dr-evil.gif" alt="" class="post-main-img" />
         <div class="post-content">
-          <img src="/imgs/avatar.jpg" alt="" class="post-avatar" width="40" height="40" />
+          <img src="/imgs/dr-evil.gif" alt="" class="post-avatar" width="40" height="40" />
           <div class="post-text-content">
             <div class="post-title">
               <h1 class="post-heading">Jake Archibald</h1>

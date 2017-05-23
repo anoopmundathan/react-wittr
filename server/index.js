@@ -3,8 +3,8 @@ import path from 'path';
 
 const app = express();
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
-
-app.get('/scripts/bundle.js', (req, res) => {
+app.use('/imgs', express.static(path.join(__dirname, '..', 'public/imgs')));
+app.get('/js/bundle.js', (req, res) => {
 
   // Serve bundle according to node environment
   if (process.env.NODE_ENV === 'production') {
