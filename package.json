@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "nodemon --exec babel-node ./server/index.js",
+    "dev:server": "NODE_ENV=test nodemon --exec babel-node ./server/index.js",
     "dev:client": "webpack --watch",
     "prod:client": "webpack -p",
     "prod:server": "babel server --out-dir dist",
     "prestart": "npm run prod:client && npm run prod:server",
-    "start": "node dist/index.js",
+    "start": "NODE_ENV=production node dist/index.js",
     "lint": "eslint ./src/**/*.js"
   },
   "keywords": [
