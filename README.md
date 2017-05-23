@@ -13,11 +13,16 @@ $ cd react-wittr
 ```
 $ npm install
 ```
-### Run webpack development server
+### Developing - in watch mode
+```
+$ npm run dev:server
+$ npm run dev:client
+```
+### For Production
 ```
 $ npm start
 ```
 ### Visit app
 ```
-http://localhost:8080/
+http://localhost:3000/
 ```
