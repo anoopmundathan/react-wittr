@@ -11,7 +11,7 @@
     "prebuild": "rm -rf build && mkdir ./build",
     "build:cpy": "cp -rf ./public/imgs ./build/imgs & cp -rf ./public/avatars ./build/avatars",
     "build:client": "webpack -p",
-    "build": "npm-run-all --parallel build:*",
+    "build": "npm run build:cpy & npm run build:client",
     "prestart": "npm run build",
     "start": "node server/index.js",
     "predev": "npm run build",
@@ -35,7 +35,6 @@
     "eslint-plugin-react": "7.0.1",
     "extract-text-webpack-plugin": "2.1.0",
     "node-sass": "4.5.3",
-    "npm-run-all": "4.0.2",
     "sass-loader": "6.0.5",
     "style-loader": "0.18.0",
     "webpack": "2.5.1"
