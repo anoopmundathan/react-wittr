@@ -5,8 +5,8 @@ const path = require('path');
 module.exports = {
   entry: ['./src/index.js', './public/scss/main.scss'],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'build')
   },
   module: {
     rules: [
@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({ 
-      filename: '[name].bundle.css',
+      filename: 'css/[name].bundle.css',
       allChunks: true,
     })
   ]

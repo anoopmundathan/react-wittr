@@ -1,12 +1,17 @@
-import express from 'express';
-
+const express = require('express');
 
 const app = express();
 
-app.use('/', express.static(__dirname + '/../public'));
-app.use('/js', express.static(__dirname + '/../dist'));
-app.use('/css', express.static(__dirname + '/../dist'));
-app.use('/imgs', express.static(__dirname + '/../public/imgs'));
+app.use('/', express.static('public'));
+app.use('/js', express.static(__dirname + '/../build/js'));
+app.use('/css', express.static(__dirname + '/../build/css'));
+app.use('/imgs', express.static(__dirname + '/../build/imgs'));
 
-app.listen(3000);
-console.log('Server running at port', 3000);
+app.get('/api', (req, res) => {
+	res.send('Api route');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
+
+console.log(`Server is running at port ${PORT}`);

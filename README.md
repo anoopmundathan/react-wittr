@@ -13,12 +13,7 @@ $ cd react-wittr
 ```
 $ npm install
 ```
-### Developing - in watch mode
-```
-$ npm run dev:server
-$ npm run dev:client
-```
-### For Production
+### Build and Run
 ```
 $ npm start
 ```
@@ -26,3 +21,8 @@ $ npm start
 ```
 http://localhost:3000/
 ```
+### Developing mode
+```
+$ npm run dev
+```
+
