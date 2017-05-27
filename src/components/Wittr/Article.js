@@ -5,7 +5,7 @@ import PostContent from './Post/PostContent';
 const Article = (props) => {
 	return(
 		<article className="post">
-      <Avatar avatar={props.posts.avatar}/>
+      <Avatar avatar={props.post.avatar}/>
       <PostContent />
     </article>
 	);
