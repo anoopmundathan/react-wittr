@@ -22,7 +22,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({ 
       filename: 'css/[name].bundle.css',
       allChunks: true,

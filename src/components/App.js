@@ -22,7 +22,7 @@ class App extends Component {
 		return(
 			<div>
 				<Header/>
-				<Main/>
+				<Main posts={this.state.posts}/>
 			</div>
     	);
 	}

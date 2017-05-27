@@ -14,7 +14,15 @@ app.get('/api', (req, res) => {
  		name: 'Jake Archibald',
  		time: '2015-08-24T10:34:17.777Z',
  		body: 'A team somewhere spent a long time ensuring Southern Rail ticket machines are as fustrating as possible.'
-	}]);
+	},
+	{
+		mainImg: {url: '/imgs/wolff.jpg', alt: ''},
+ 		avatar: '/imgs/avatar.jpg',
+ 		name: 'Anoop Mundathan',
+ 		time: '2015-08-24T10:34:17.777Z',
+ 		body: 'Southern Rail ticket machines are as fustrating as possible.'
+	}
+	]);
 });
 
 const PORT = process.env.PORT || 3000;
