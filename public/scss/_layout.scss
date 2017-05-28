@@ -5,15 +5,12 @@
 }
 
 .main {
-  @include flex(1);
-  @include display-flex;
   overflow: hidden;
   position: relative;
 }
 
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 .scroller {

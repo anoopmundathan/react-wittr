@@ -1,4 +1,5 @@
 const express = require('express');
+const generateMessage = require('./generateMessage');
 
 const app = express();
 
@@ -8,21 +9,19 @@ app.use('/css', express.static(__dirname + '/../build/css'));
 app.use('/imgs', express.static(__dirname + '/../build/imgs'));
 
 app.get('/api', (req, res) => {
-	res.json([{
-		mainImg: {url: '/imgs/dr-evil.gif', alt: 'wolf'},
- 		avatar: '/imgs/avatar.jpg',
- 		name: 'Jake Archibald',
- 		time: '2015-08-24T10:34:17.777Z',
- 		body: 'A team somewhere spent a long time ensuring Southern Rail ticket machines are as fustrating as possible.'
-	},
-	{
-		mainImg: {url: '/imgs/dr-evil.gif', alt: 'dr-evil'},
- 		avatar: '/imgs/avatar.jpg',
- 		name: 'Anoop Mundathan',
- 		time: '2015-08-24T10:34:17.777Z',
- 		body: 'Southern Rail ticket machines are as fustrating as possible.'
+
+	const messages = [];
+	for(let i = 0; i < 25; i++) {
+		const message = {};
+		const genMessage = generateMessage.generateMessage();
+		message.mainImg = {url: '/imgs/dr-evil.gif', alt: 'wolf'};
+		message.avatar = '/imgs/avatar.jpg';
+ 		message.name = 'Jake Archibald';
+ 		message.time = '2015-08-24T10:34:17.777Z';
+ 		message.body = genMessage.msg;
+		messages.push(message);
 	}
-	]);
+	res.json(messages);
 });
 
 const PORT = process.env.PORT || 3000;
