@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf build && mkdir ./build",
     "build:cpy": "cp -rf ./public/imgs ./build/imgs & cp -rf ./public/avatars ./build/avatars",
-    "build:client": "webpack",
+    "build:client": "webpack -p",
     "build": "npm-run-all build:*",
     "prestart": "npm run build",
     "start": "node server/index.js",
