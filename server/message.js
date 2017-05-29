@@ -193,6 +193,16 @@ const sentenceGenerators = [
 ];
 
 
+function createMessage() {
+	const message = {};
+	const generatedMessage = generateMessage();
+	message.mainImg = {url: '/imgs/dr-evil.gif', alt: 'wolf'};
+	message.avatar = '/imgs/avatar.jpg';
+ 	message.name = 'Jake Archibald';
+ 	message.body = generatedMessage.msg;
+ 	return message;
+}
+
 function generateMessage() {
 	const generator = pickFrom(sentenceGenerators);
   	const r = {};
@@ -205,15 +215,5 @@ function generateMessage() {
 
 module.exports = {
 	generateMessage: generateMessage,
-	pickFrom: pickFrom
+	createMessage: createMessage
 }
-
-// module.exports = function() {
-//   const generator = pickFrom(sentenceGenerators);
-//   const r = {};
-//   if (generator.img) {
-//     r.img = generator.img();
-//   }
-//   r.msg = generator.msg();
-//   return r;
-// }

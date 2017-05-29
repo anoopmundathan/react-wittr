@@ -1,5 +1,5 @@
 const express = require('express');
-const generateMessage = require('./generateMessage');
+const createMessage = require('./message').createMessage;
 
 const app = express();
 
@@ -24,13 +24,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT);
 
 console.log(`Servers is running at port ${PORT}`);
-
-function createMessage() {
-	const message = {};
-	const generatedMessage = generateMessage.generateMessage();
-	message.mainImg = {url: '/imgs/dr-evil.gif', alt: 'wolf'};
-	message.avatar = '/imgs/avatar.jpg';
- 	message.name = 'Jake Archibald';
- 	message.body = generatedMessage.msg;
- 	return message;
-}
