@@ -36,12 +36,15 @@
     "css-loader": "0.28.3",
     "express": "4.15.3",
     "extract-text-webpack-plugin": "2.1.0",
+    "loadash": "0.0.1",
     "node-sass": "4.5.3",
     "npm-run-all": "4.0.2",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "sass-loader": "6.0.5",
     "style-loader": "0.18.1",
-    "webpack": "2.6.1"
+    "url": "0.11.0",
+    "webpack": "2.6.1",
+    "ws": "3.0.0"
   }
 }
