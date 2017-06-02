@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     react: './src/index.js',
-    main: './public/scss/main.scss'
+    main: './public/scss/index.scss'
   },
   output: {
     filename: 'js/[name]-bundle.js',

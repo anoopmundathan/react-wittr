@@ -1,27 +1,23 @@
-.post-main-img {
-  position: absolute;
-  top: 0;
-  width: 100%;
+.post {
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  margin: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-  @supports (object-fit: cover) {
-    height: 100%;
-    object-fit: cover;
+  @media (min-width: 600px) {
+    margin: 16px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.15);
+  }
+
+  @media (min-width: 800px) {
+    margin: 16px auto;
+    width: 756px;
   }
 }
 
-.post-main-img-container {
-  position: relative;
-  overflow: hidden;
-  background: #e4e4e4;
-
-  // fix layout on retina displays
-  transform: translateZ(0);
-
-  &::before {
-    content: '';
-    display: block;
-    padding-top: 56.25%;
-  }
+.post-main-img {
+  width: 100%;
 }
 
 .post-content {
@@ -44,7 +40,6 @@
 .post-avatar {
   border-radius: 20px;
   margin-right: 16px;
-  object-fit: cover;
 }
 
 .post-title {
@@ -64,22 +59,4 @@
 
 .post-time {
   color: #888;
-}
-
-.posts-alert {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  background: radial-gradient(ellipse farthest-side at 50% 0, rgba(saturate($primary-color, 30%), 0.47), rgba(saturate($primary-color, 30%), 0));
-  pointer-events: none;
-  will-change: opacity;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-
-  &.active {
-    opacity: 1;
-  }
 }

@@ -5,16 +5,11 @@
 }
 
 .main {
+  @include flex(1);
   overflow: hidden;
-  position: relative;
+  overflow-y: scroll;
 }
 
 html, body {
   height: 100%;
-}
-
-.scroller {
-  overflow: hidden;
-  overflow-y: scroll;
-  width: 100%;
 }

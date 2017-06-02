@@ -27,29 +27,24 @@ function Server() {
 	this._app.use('/css', express.static(__dirname + '/../build/css'));
 	this._app.use('/imgs', express.static(__dirname + '/../build/imgs'));
 
-	this.generateInitialMessages();
   this.generateDelayedMessages();
 }
 
-// TODO : Since for loop blocks IO, find better way to do it
-Server.prototype.generateInitialMessages = function() {
+Server.prototype.generateMessage = function() {
     let time = new Date();
-    for (let i = 0; i < 5; i++) {
-      let msg = createMessage();  
-      // Random no between 5000 & 15000
-      let timeDiff = Math.floor(Math.random() * 10001) + 5000;
-      time = new Date(time - timeDiff);
-      msg.time = time.toString();
-      this._messages.push(msg);
-    }
+    let msg = createMessage();  
+    let timeDiff = Math.floor(Math.random() * 10001) + 5000;
+    time = new Date(time - timeDiff);
+    msg.time = time.toString();
+    return msg;
 }
 
 Server.prototype.onWsConnection = function(socket) {
   this._sockets.push(socket);
 
-    // socket.on('close', _ => {
-    //   this._sockets.splice(this._sockets.indexOf(socket), 1);
-    // });
+    socket.on('close', _ => {
+      this._sockets.splice(this._sockets.indexOf(socket), 1);
+    });
 
     // let sendNow = [];
 
@@ -65,11 +60,8 @@ Server.prototype.onWsConnection = function(socket) {
 
     // socket.send(JSON.stringify(sendNow));
 
-    const messages = [];
-    for(let i = 0; i < 25; i++) {
-      const msg = createMessage();
-      msg.time = new Date(Date.now() - (1000 * (10 * i))).toString();
-      // messages.push(msg);
+    for(let i = 0; i < 5; i++) {
+      let msg = this.generateMessage();
       socket.send(JSON.stringify(msg));
     }
 }
@@ -82,14 +74,9 @@ Server.prototype.broadcast = function(obj) {
 Server.prototype.generateDelayedMessages = function() {
 	let random = Math.floor((Math.random() * 10001) + 5000);
   setTimeout(_ => {
-    this.addMessage();
+    this.broadcast(this.generateMessage());
     this.generateDelayedMessages();
   }, random);
-}
-
-Server.prototype.addMessage = function() {
-  const message = createMessage();
-  this.broadcast(message);
 }
 
 Server.prototype.listen = function(port) {
