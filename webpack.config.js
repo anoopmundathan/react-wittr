@@ -5,7 +5,6 @@ const path = require('path');
 module.exports = {
   entry: {
     react: './src/index.js',
-    socket: './src/socket.js',
     main: './public/scss/main.scss'
   },
   output: {
